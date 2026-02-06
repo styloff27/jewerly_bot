@@ -5,7 +5,8 @@ load_dotenv()
 import asyncio
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import ChatOllama
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_classic.agents.tool_calling_agent.base import create_tool_calling_agent
@@ -51,10 +52,18 @@ mcp_tools = asyncio.run(load_mcp_tools())
 tools = mcp_tools + [summarize_conversation_state, extract_entities, action_requires_confirmation]
 
 def create_agent(max_iterations: int = 10):
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash",
+    # llm = ChatGoogleGenerativeAI(
+    #     model="gemini-2.0-flash",
+    #     temperature=0.0,
+    #     max_retries=6,
+    #     requests_per_second=0.5,
+    #     api_key=os.getenv("GEMINI_API_KEY"),
+    # )
+
+    llm = ChatOllama(
+        model="llama3.1",
         temperature=0.0,
-        api_key=os.getenv("GEMINI_API_KEY"),
+        base_url="http://localhost:11434",
     )
 
     prompt = ChatPromptTemplate.from_messages([

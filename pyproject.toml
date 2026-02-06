@@ -15,4 +15,5 @@ dependencies = [
     "mcp[cli]",
     "fastmcp>=2.14.5",
     "langchain-mcp-adapters>=0.2.1",
+    "langchain-ollama>=1.0.1",
 ]
