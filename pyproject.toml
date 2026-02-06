@@ -1,0 +1,18 @@
+[project]
+name = "jewelry-ops-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain",
+    "langchain-core",
+    "langchain-community",
+    "langchain-google-genai",
+    "python-dotenv",
+    "pydantic",
+    "streamlit",
+    "mcp[cli]",
+    "fastmcp>=2.14.5",
+    "langchain-mcp-adapters>=0.2.1",
+]
