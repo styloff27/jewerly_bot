@@ -1,6 +1,6 @@
 from fastmcp import FastMCP
 from tools.orders_tools import get_order, list_orders, update_order_status
-from tools.inventories_tools import get_inventory, list_inventory
+from tools.inventories_tools import get_inventory, list_inventory, update_inventory
 
 mcp = FastMCP("OrdersInventory")
 
